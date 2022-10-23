@@ -1,0 +1,31 @@
+#countries-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#countries-container div {
+    width: 300px;
+    min-height: 100px;
+    border: 2px solid gray;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 20px;
+    color: rgb(107, 154, 207);
+
+}
+
+#countries-container div img {
+    width: 200px;
+    height: 100px;
+    border: 1px solid dimgrey;
+    border-radius: 5px;
+}
+
+#country-details {
+    text-align: center;
+}
+
+span {
+    color: rgb(47, 98, 165);
+}
