@@ -1,3 +1,4 @@
+/* Search food form input value */
 const searchFood = () => {
     const foodName = document.getElementById('food-input-field');
     const foodInputValue = foodName.value.toLowerCase();
@@ -14,7 +15,7 @@ const searchFood = () => {
     foodName.value = ''
 }
 
-
+/* Show search all food */
 const showFoodResult = (foodData, foodName) => {
     const allFoods = document.getElementById('all-foods');
     const totalItemOfFoods = foodData.meals.length;
@@ -24,7 +25,7 @@ const showFoodResult = (foodData, foodName) => {
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `
-            <div class="card h-100">
+            <div onclick="singleFoodLoad(${food.idMeal})" class="card h-100">
                 <img src="${food.strMealThumb}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">${food.strMeal}</h5>
@@ -36,6 +37,33 @@ const showFoodResult = (foodData, foodName) => {
     });
     // console.log(food);
 }
+
+const singleFoodLoad = foodId => {
+    const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${foodId}`;
+    fetch(url)
+        .then((response) => response.json())
+        .then(data => detailsSingleFood(data.meals[0]));
+
+}
+
+const detailsSingleFood = (singleFood) => {
+    const singleFoodDetails = document.getElementById('single-food-details');
+    singleFoodDetails.innerHTML = `
+        <div class="card">
+            <img src="${singleFood.strMealThumb}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Food Name: ${singleFood.strMeal}</h5>
+                <h5 class="card-title">Food Category: ${singleFood.strCategory}</h5>
+                <h5 class="card-title">Area: ${singleFood.strArea}</h5>
+                <p class="card-text">${singleFood.strInstructions.slice(0, 150)}</p>
+                <a href="${singleFood.strYoutube}" class="btn btn-primary">See video</a>
+            </div>
+        </div>
+    `
+    console.log(singleFood);
+
+}
+
 
 /* const errorThrough = (input) => {
     try {
