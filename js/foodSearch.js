@@ -52,11 +52,20 @@ const detailsSingleFood = (singleFood) => {
         <div class="card">
             <img src="${singleFood.strMealThumb}" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Food Name: ${singleFood.strMeal}</h5>
-                <h5 class="card-title">Food Category: ${singleFood.strCategory}</h5>
-                <h5 class="card-title">Area: ${singleFood.strArea}</h5>
-                <p class="card-text">${singleFood.strInstructions.slice(0, 150)}</p>
-                <a href="${singleFood.strYoutube}" class="btn btn-primary">See video</a>
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="${singleFood.strMealThumb}" class="card-img-top" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Food Name: ${singleFood.strMeal}</h5>
+                            <h5 class="card-title">Food Category: ${singleFood.strCategory}</h5>
+                            <h5 class="card-title">Area: ${singleFood.strArea}</h5>
+                            <p class="card-text">${singleFood.strInstructions.slice(0, 150)}</p>
+                            <a href="${singleFood.strYoutube}" class="btn btn-primary">See video</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     `
